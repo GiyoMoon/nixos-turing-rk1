@@ -1,0 +1,24 @@
+diff --git a/dts/upstream/src/arm64/rockchip/rk3588-turing-rk1.dtsi b/dts/upstream/src/arm64/rockchip/rk3588-turing-rk1.dtsi
+index 6b9206ce..d7b2648e 100644
+--- a/dts/upstream/src/arm64/rockchip/rk3588-turing-rk1.dtsi
++++ b/dts/upstream/src/arm64/rockchip/rk3588-turing-rk1.dtsi
+@@ -224,7 +224,7 @@
+ &pcie3x4 {
+ 	linux,pci-domain = <0>;
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&pcie3_reset>;
++	pinctrl-0 = <&pcie3_reset>, <&pcie3_clkreqn_m1>;
+ 	reset-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
+ 	vpcie3v3-supply = <&vcc3v3_pcie30>;
+ 	status = "okay";
+@@ -257,6 +257,10 @@
+ 		vcc3v3_pcie30_en: pcie3-reg {
+ 			rockchip,pins = <2 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
++
++		pcie3_clkreqn_m1: pcie3-clkreqn-m1 {
++			rockchip,pins = <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_down>;
++		};
+ 	};
+ 
+ 	rtl8211f {
