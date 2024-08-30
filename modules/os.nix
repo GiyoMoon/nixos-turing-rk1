@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 let
   username = "nixos";
   # openssl passwd -6
@@ -13,9 +13,6 @@ in
       "nix-command"
       "flakes"
     ];
-    # Disabled for easy use of `nix-copy-closure` to update the remote system
-    # The correct way would be to update `trusted-public-keys` with the public key of your local system
-    require-sigs = false;
   };
 
   time.timeZone = "Europe/Zurich";
@@ -24,17 +21,6 @@ in
     man.enable = lib.mkDefault false;
     nixos.enable = lib.mkDefault false;
   };
-
-  environment.systemPackages = with pkgs; [
-    git
-    curl
-    vim
-
-    neofetch
-    lm_sensors
-  ];
-
-  environment.variables.EDITOR = "vim";
 
   services.openssh = {
     enable = lib.mkDefault true;

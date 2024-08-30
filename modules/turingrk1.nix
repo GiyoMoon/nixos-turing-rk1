@@ -70,7 +70,7 @@ in
     compressImage = false;
 
     firmwarePartitionOffset = 16;
-    firmwareSize = 20;
+    firmwareSize = 10;
     populateFirmwareCommands = "";
 
     populateRootCommands = ''
