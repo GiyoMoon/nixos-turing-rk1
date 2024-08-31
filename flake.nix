@@ -19,7 +19,11 @@
     { self, nixpkgs, ... }@inputs:
     let
       system = "aarch64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        # nixpkgs.ubootTuringRK1 includes proprietary binaries from Rockchip
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {

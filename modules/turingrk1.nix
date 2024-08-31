@@ -6,8 +6,7 @@
   ...
 }:
 let
-  rootPartitionUUID = "14e19a7b-0ae0-484d-9d54-43bd6fdc20c7";
-  uboot = pkgs.callPackage ../packages/u-boot { };
+  rootPartitionUUID = "7a684895-6ef1-4586-98d9-2d2013e98286";
 in
 {
   imports = [ "${pkgs.path}/nixos/modules/installer/sd-card/sd-image.nix" ];
@@ -79,7 +78,7 @@ in
     '';
 
     postBuildCommands = ''
-      dd if=${uboot}/u-boot-rockchip.bin of=$img seek=1 bs=32k conv=notrunc
+      dd if=${pkgs.ubootTuringRK1}/u-boot-rockchip.bin of=$img seek=1 bs=32k conv=notrunc
     '';
   };
 }
