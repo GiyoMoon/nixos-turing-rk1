@@ -39,7 +39,6 @@ If you have made changes to the kernel, restart your system for the changes to t
 
 ## Todo's
 - [ ] Add the Mali G610 firmware required for the GPU
-- [ ] Fix kernel not logging to UART
 - [ ] Support cross-compilation
   - [ ] x86_64-linux
   - [ ] aarch64-darwin

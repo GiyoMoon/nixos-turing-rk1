@@ -18,11 +18,11 @@ in
       "raid1"
     ];
 
-    kernelParams = [
+    kernelParams = lib.mkForce [
       "root=UUID=${rootPartitionUUID}"
       "rootfstype=ext4"
-      "console=ttyS2,1500000"
-      "console=ttyS9,115200"
+      "console=ttyS0,115200"
+      "loglevel=7"
     ];
 
     loader = {
