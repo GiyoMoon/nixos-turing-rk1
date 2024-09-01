@@ -7,10 +7,10 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
-    # v6.11-rc5
-    # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tag/?h=v6.11-rc5
+    # v6.11-rc6
+    # https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tag/?h=v6.11-rc6
     kernel = {
-      url = "git+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git?rev=042a071fcf19ce0b699ad7caaa4726915f740dd6";
+      url = "git+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git?rev=8e7c1c539395e34648d859c20b0f9478eb5901cc";
       flake = false;
     };
   };
