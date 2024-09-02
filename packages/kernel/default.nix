@@ -25,6 +25,10 @@ linuxManualConfig {
       perl
     ];
 
+    postPatch = ''
+      patchShebangs scripts/config
+    '';
+
     buildPhase = ''
       make defconfig
       scripts/config --module CONFIG_CRYPTO_USER_API_HASH

@@ -26,15 +26,20 @@
       };
     in
     {
+      nixosModules = {
+        turing-rk1 = { ... }@args: import ./modules/turing-rk1.nix (args // { inherit inputs pkgs; });
+      };
+
       nixosConfigurations = {
-        turingrk1 = nixpkgs.lib.nixosSystem {
+        turing-rk1 = nixpkgs.lib.nixosSystem {
           inherit system;
 
-          specialArgs.inputs = inputs;
-          specialArgs.pkgs = pkgs;
+          specialArgs = {
+            inherit pkgs inputs;
+          };
 
           modules = [
-            ./modules/turingrk1.nix
+            ./modules/turing-rk1.nix
             ./modules/os.nix
           ];
         };

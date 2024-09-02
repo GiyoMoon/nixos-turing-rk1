@@ -13,6 +13,7 @@ in
       "nix-command"
       "flakes"
     ];
+    trusted-users = [ "@wheel" ];
   };
 
   time.timeZone = "Europe/Zurich";
@@ -38,6 +39,7 @@ in
     home = "/home/${username}";
     extraGroups = [ "wheel" ];
   };
+  security.sudo.wheelNeedsPassword = false;
 
   system.stateVersion = "24.05";
 }
