@@ -21,14 +21,14 @@ Default credentials:
 You can use this flake as a hardware config in your flake:
 
 ```nix
-  inputs = {
-    turing-rk1 = {
-      url = "github:GiyoMoon/nixos-turing-rk1";
-    };
+inputs = {
+  turing-rk1 = {
+    url = "github:GiyoMoon/nixos-turing-rk1";
   };
+};
 ```
 
-Now you can include `turing-rk1.nixosModules.turing-rk1` in your modules for your system.
+And then include `turing-rk1.nixosModules.turing-rk1` in your modules for your system.
 
 ## Todo's
 - [ ] Add the Mali G610 firmware required for the GPU
