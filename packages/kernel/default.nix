@@ -65,9 +65,37 @@ linuxManualConfig {
       scripts/config --module CONFIG_NFT_REJECT_NETDEV
       scripts/config --module CONFIG_NETFILTER_XTABLES
       scripts/config --module CONFIG_NETFILTER_XT_MATCH_PKTTYPE
+      scripts/config --module CONFIG_NETFILTER_XT_MATCH_COMMENT
+      scripts/config --module CONFIG_NETFILTER_XT_MATCH_STATISTIC
 
       # Enable RAID 1
       scripts/config --module CONFIG_MD_RAID1
+
+      # Enable vxlan for k8s flannel
+      scripts/config --module CONFIG_VXLAN
+      scripts/config --module CONFIG_NF_FLOW_TABLE
+      scripts/config --enable CONFIG_NF_FLOW_TABLE_PROCFS
+      scripts/config --module CONFIG_NETFILTER_XT_TARGET_CT
+      scripts/config --module CONFIG_NFT_DUP_IPV4
+      scripts/config --module CONFIG_NFT_FIB_IPV4
+      scripts/config --enable CONFIG_NF_TABLES_ARP
+      scripts/config --module CONFIG_IP_NF_ARP_MANGLE
+      scripts/config --module CONFIG_NFT_DUP_IPV6
+      scripts/config --module CONFIG_NFT_FIB_IPV6
+      scripts/config --module CONFIG_NF_TABLES_BRIDGE
+      scripts/config --module CONFIG_NFT_BRIDGE_META
+      scripts/config --module CONFIG_NFT_BRIDGE_REJECT
+      scripts/config --module CONFIG_NET_ACT_CT
+      scripts/config --module CONFIG_NFT_FLOW_OFFLOAD
+      scripts/config --module CONFIG_NFT_FIB_INET
+      scripts/config --module CONFIG_NFT_FIB_NETDEV
+      scripts/config --module CONFIG_NF_FLOW_TABLE_INET
+
+      # containerd
+      scripts/config --enable CONFIG_CFS_BANDWIDTH
+
+      # traefik
+      scripts/config --enable CONFIG_NETFILTER_XT_MATCH_MULTIPORT
 
       make oldconfig
     '';

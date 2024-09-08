@@ -16,6 +16,7 @@ in
     kernelModules = [
       "nf_tables"
       "raid1"
+      "vxlan"
     ];
 
     kernelParams = lib.mkForce [
