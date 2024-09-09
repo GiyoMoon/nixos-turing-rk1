@@ -62,7 +62,7 @@ Done! We now have a clean NixOS install on the external block device. The eMMC o
 
 ## Screenshots
 
-![NixOS neofetch](./assets/neofetch.webp)
+![NixOS fastfetch](./assets/fastfetch.webp)
 
 ## References
 - [ryan4yin/nixos-rk3588](https://github.com/ryan4yin/nixos-rk3588)
