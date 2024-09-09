@@ -44,5 +44,10 @@
           ];
         };
       };
+
+      packages.${system}.uboot-turing-rk1 = import ./modules/uboot-sd-image.nix {
+        stdenv = pkgs.stdenv;
+        inherit pkgs;
+      };
     };
 }

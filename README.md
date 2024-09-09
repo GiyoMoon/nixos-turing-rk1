@@ -30,6 +30,32 @@ inputs = {
 
 And then include `turing-rk1.nixosModules.turing-rk1` in your modules for your system.
 
+## Flashing the image to an external block device
+
+While the RK1 supports booting off an external block device, uboot still needs to be on the eMMC to handle the boot process. You can download an image that only contains uboot from the [releases](https://github.com/GiyoMoon/nixos-turing-rk1/releases) page or build it yourself with:
+```bash
+nix build github:GiyoMoon/nixos-turing-rk1#uboot-turing-rk1
+```
+The image will be created under `./result/sd-image/uboot.img`.
+
+Flashing the OS image to the external block device is a bit tricky too, as we can't use the BMC of the Turing Pi. We have to either flash it by using a third-party device or we first flash NixOS onto the eMMC, flash the image to the external block device from within the RK1, then wipe the eMMC again with the small image that only contains uboot. I didn't want to open my case again to get the NVMe drives out, so I went with the latter, let's go through the steps:
+
+1. Flash the `nixos.img` image (Download from releases or build yourself) onto the eMMC over the BMC User Interface
+2. Power on the node
+3. Copy `nixos.img` to the node:
+```bash
+scp nixos.img nixos@{NODE_IP}:/home/nixos/
+```
+4. SSH into the node and flash the image on the external block device. I'm flashing it to the NVMe drive under `/dev/nvme0n1`
+```bash
+sudo dd if=nixos.img of=/dev/nvme0n1 bs=4M status=progress oflag=sync
+sudo sync
+```
+5. Power off the node
+6. Flash the `uboot.img` image (Download from releases or build yourself) onto the eMMC over the BMC User Interface
+
+Done! We now have a clean NixOS install on the external block device. The eMMC only contains uboot which will boot from the external device.
+
 ## Todo's
 - [ ] Add the Mali G610 firmware required for the GPU
 - [ ] Support cross-compilation on x86_64-linux
