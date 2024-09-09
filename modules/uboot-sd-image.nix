@@ -2,7 +2,6 @@
 stdenv.mkDerivation {
   pname = "uboot-sd-image";
   version = "0.1.0";
-  dontUnpack = true;
   buildCommand = ''
     mkdir -p $out/sd-image
     export img=$out/sd-image/uboot.img
