@@ -3,27 +3,27 @@
     "kernel": {
       "flake": false,
       "locked": {
-        "lastModified": 1725176762,
-        "narHash": "sha256-NpZ1gNA18M1iWEowRnIAIBatq+LI17Npv1G3SVQznZY=",
+        "lastModified": 1726412276,
+        "narHash": "sha256-QIbHTLWI5CaStQmuoJ1k7odQUDRLsWNGY10ek0eKo8M=",
         "ref": "refs/heads/master",
-        "rev": "8e7c1c539395e34648d859c20b0f9478eb5901cc",
-        "revCount": 1296133,
+        "rev": "fa7818b3a6dd56c7956f515d287ed9f80c7bf59a",
+        "revCount": 1296649,
         "type": "git",
         "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
       },
       "original": {
-        "rev": "8e7c1c539395e34648d859c20b0f9478eb5901cc",
+        "rev": "fa7818b3a6dd56c7956f515d287ed9f80c7bf59a",
         "type": "git",
         "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1725432240,
-        "narHash": "sha256-+yj+xgsfZaErbfYM3T+QvEE2hU7UuE+Jf0fJCJ8uPS0=",
+        "lastModified": 1726463316,
+        "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ad416d066ca1222956472ab7d0555a6946746a80",
+        "rev": "99dc8785f6a0adac95f5e2ab05cc2e1bf666d172",
         "type": "github"
       },
       "original": {

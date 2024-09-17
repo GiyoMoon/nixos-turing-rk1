@@ -13,7 +13,7 @@ in
 linuxManualConfig {
   inherit src;
 
-  version = "6.11.0-rc6";
+  version = "6.11.0";
 
   configfile = stdenv.mkDerivation {
     inherit src;
