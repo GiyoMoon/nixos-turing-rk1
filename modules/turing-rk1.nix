@@ -6,6 +6,7 @@
   ...
 }:
 let
+  # $ uuidgen
   rootPartitionUUID = "7a684895-6ef1-4586-98d9-2d2013e98286";
 in
 {
@@ -49,7 +50,7 @@ in
 
   };
 
-  fileSystems = lib.mkForce {
+  fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";
