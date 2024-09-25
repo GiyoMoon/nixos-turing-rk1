@@ -97,6 +97,9 @@ linuxManualConfig {
       # traefik
       scripts/config --enable CONFIG_NETFILTER_XT_MATCH_MULTIPORT
 
+      # iscsi
+      scripts/config --module CONFIG_ISCSI_TCP
+
       make oldconfig
     '';
 
