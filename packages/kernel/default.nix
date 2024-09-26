@@ -100,6 +100,9 @@ linuxManualConfig {
       # iscsi
       scripts/config --module CONFIG_ISCSI_TCP
 
+      # metallb
+      scripts/config --module CONFIG_NETFILTER_XT_MATCH_RECENT
+
       make oldconfig
     '';
 
