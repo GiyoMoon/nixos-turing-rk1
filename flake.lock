@@ -3,16 +3,16 @@
     "kernel": {
       "flake": false,
       "locked": {
-        "lastModified": 1726412276,
-        "narHash": "sha256-QIbHTLWI5CaStQmuoJ1k7odQUDRLsWNGY10ek0eKo8M=",
+        "lastModified": 1727647579,
+        "narHash": "sha256-olfaNFVQD9qyF/5I0ynv2xa0zxQag/4jyLvZt5nc/Js=",
         "ref": "refs/heads/master",
-        "rev": "fa7818b3a6dd56c7956f515d287ed9f80c7bf59a",
-        "revCount": 1296649,
+        "rev": "03dc72319cee7d0dfefee9ae7041b67732f6b8cd",
+        "revCount": 1308764,
         "type": "git",
         "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
       },
       "original": {
-        "rev": "fa7818b3a6dd56c7956f515d287ed9f80c7bf59a",
+        "rev": "03dc72319cee7d0dfefee9ae7041b67732f6b8cd",
         "type": "git",
         "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
       }
