@@ -19,6 +19,7 @@ in
       "raid1"
       "vxlan"
       "iscsi_tcp"
+      "cifs"
     ];
 
     kernelParams = lib.mkForce [

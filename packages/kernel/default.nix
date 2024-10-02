@@ -103,6 +103,18 @@ linuxManualConfig {
       # metallb
       scripts/config --module CONFIG_NETFILTER_XT_MATCH_RECENT
 
+      scripts/config --module CONFIG_CIFS
+      scripts/config --enable CIFS_STATS2
+      scripts/config --disable CIFS_ALLOW_INSECURE_LEGACY
+
+      scripts/config --disable CIFS_UPCALL
+      scripts/config --enable CIFS_XATTR
+      scripts/config --enable CIFS_DEBUG
+      scripts/config --enable CIFS_DEBUG2
+      scripts/config --disable CIFS_DEBUG_DUMP_KEYS
+      scripts/config --enable CIFS_DFS_UPCALL
+      scripts/config --enable CIFS_SWN_UPCALL
+
       make oldconfig
     '';
 

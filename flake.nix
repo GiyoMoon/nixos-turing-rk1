@@ -21,8 +21,12 @@
       system = "aarch64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        # nixpkgs.ubootTuringRK1 includes proprietary binaries from Rockchip
-        config.allowUnfree = true;
+        config.allowUnfreePredicate =
+          pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
+            # nixpkgs.ubootTuringRK1 includes proprietary binaries from Rockchip
+            "ubootTuringRK1"
+          ];
       };
     in
     {
