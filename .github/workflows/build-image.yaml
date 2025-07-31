@@ -1,0 +1,37 @@
+name: "Build Image"
+
+on:
+  workflow_dispatch: {} # allow running manually
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build the flake
+        run: |
+          nix build .#nixosConfigurations.turing-rk1.config.system.build.sdImage
+
+      - name: Extract version from filename
+        id: version-extract
+        run: |
+            IMG_FILE=$(ls result/sd-image/nixos-image-sd-card-*.img)
+            VERSION=$(basename "$IMG_FILE" .img)
+            echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+      - name: Upload to GitHub Packages
+        uses: actions/upload-package@v1
+        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
+        with:
+          name: nixos-turing-rk1
+          version: ${{ steps.version-extract.outputs.version }}
+          file: result/sd-image/nixos-image-sd-card*.img
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
